@@ -74,6 +74,7 @@ def match(titleIn):
     
     # check to make sure that we have a valid listing before going on
     if inValid(titleIn[:5]) or reiInTitle(titleIn):
+        print TWO TWO TWO
         return "No results found."
     
     for url in urls:
@@ -81,6 +82,7 @@ def match(titleIn):
         try:
             urlStr = url.encode('utf8')
         except:
+            print ONE ONE ONE
             return "No results found."
         
         mismatches = 0
@@ -105,8 +107,10 @@ def match(titleIn):
             priceMessage = "Currently, the lowest price for this item on [backcountry.com](" + results[0] + ") is " + lowPrices[0] + "." + botMessage
             return priceMessage
         else:
+            print THREE THREE THREE
             return "No results found."
     else:
+        print FOUR FOUR FOUR
         return "No results found."
 
 
@@ -139,6 +143,7 @@ def main() :
             try:
                 message = match(submissiontitle)
             except:
+                print FIVE FIVE FIVE
                 message = "No results found."
             
             if message != "No results found.":
