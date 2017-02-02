@@ -135,7 +135,12 @@ def main() :
         # If we haven't replied to this post before
         if submission.id not in posts_replied_to:
         
-            message = match(submissiontitle)
+            # try to match the item/price to the title
+            try:
+                message = match(submissiontitle)
+            except:
+                message = "No results found."
+            
             if message != "No results found.":
                 submission.reply(message)
                 print "Submission to " + submission.title + ": " + message
