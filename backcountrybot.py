@@ -8,7 +8,7 @@ from google import search
 from bs4    import BeautifulSoup
 
 
-SUBREDDITNAME = 'geartrade'
+SUBREDDITNAME = 'backcountrybot'
 botMessage = "\n\n" + "*****" + "\n\n" + "^I'm ^a ^bot, ^and ^I've ^done ^my ^best ^to ^find ^your ^item ^on ^backcountry.com ^and ^provide ^the ^lowest ^listed ^selling ^price ^for ^your ^reference." + "\n\n" + "^It's ^possible ^that ^I ^may ^have ^chosen ^the ^wrong ^item, ^as ^I'm ^still ^under ^development. ^Feel ^free ^to ^send ^me ^a ^PM ^or ^post ^in ^r/BackcountryBot ^to ^report ^any ^sort ^of ^feedback." + "\n\n" + "^I ^was ^created ^by ^u/WarDEagle."
 
 
@@ -45,15 +45,13 @@ def between_i(string, start='', end=''):
 
 
 def invalidTag(tag):
-#    tagLower = tag.lower()
-#    if "wtb" in tagLower:
-#        return True
-#    elif "[" not in tag or "]" not in tag:
-#        return True
-#    else:
-#        return False
-    return True
-
+    tagLower = tag.lower()
+    if "wtb" in tagLower:
+        return True
+    elif "[" not in tag or "]" not in tag:
+        return True
+    else:
+        return False
 
 
 def reiInTitle(title):
