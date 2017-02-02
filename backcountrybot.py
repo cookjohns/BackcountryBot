@@ -73,8 +73,7 @@ def match(titleIn):
     print titleIn[5:]
     
     # check to make sure that we have a valid listing before going on
-    if inValid(titleIn[:5]) or reiInTitle(titleIn):
-        print "TWO TWO TWO"
+    if invalidTag(titleIn[:5]) or reiInTitle(titleIn):
         return "No results found."
     
     for url in urls:
@@ -82,7 +81,6 @@ def match(titleIn):
         try:
             urlStr = url.encode('utf8')
         except:
-            print "ONE ONE ONE"
             return "No results found."
         
         mismatches = 0
@@ -107,10 +105,8 @@ def match(titleIn):
             priceMessage = "Currently, the lowest price for this item on [backcountry.com](" + results[0] + ") is " + lowPrices[0] + "." + botMessage
             return priceMessage
         else:
-            print "THREE THREE THREE"
             return "No results found."
     else:
-        print "FOUR FOUR FOUR"
         return "No results found."
 
 
@@ -134,17 +130,12 @@ def main() :
     # Get the stream of new submissions from the subreddit
     subreddit = reddit.subreddit(SUBREDDITNAME)
     for submission in subreddit.stream.submissions():
-        submissiontitle = submission.title
+        submissiontitle = submission.title.encode('utf8')
         
         # If we haven't replied to this post before
         if submission.id not in posts_replied_to:
         
-            # try to match the item/price to the title
-            try:
-                message = match(submissiontitle)
-            except:
-                print "FIVE FIVE FIVE"
-                message = "No results found."
+            message = match(submissiontitle)
             
             if message != "No results found.":
                 submission.reply(message)
