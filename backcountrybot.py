@@ -73,7 +73,12 @@ def match(titleIn):
     print titleIn[5:]
     
     for url in urls:
-        urlStr = url.encode('utf8')
+        # try to get the urls, but catch exceptions from encoding errors
+        try:
+            urlStr = url.encode('utf8')
+        except:
+            return "No results found."
+        
         mismatches = 0
         urlKeywords = urlStr[27:].split('-')
         if mismatches < 5:
