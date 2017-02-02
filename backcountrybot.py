@@ -45,13 +45,14 @@ def between_i(string, start='', end=''):
 
 
 def invalidTag(tag):
-    tagLower = tag.lower()
-    if "wtb" in tagLower:
-        return True
-    elif "[" not in tag or "]" not in tag:
-        return True
-    else:
-        return False
+#    tagLower = tag.lower()
+#    if "wtb" in tagLower:
+#        return True
+#    elif "[" not in tag or "]" not in tag:
+#        return True
+#    else:
+#        return False
+    return True
 
 
 
