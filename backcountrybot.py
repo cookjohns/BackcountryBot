@@ -128,27 +128,30 @@ def main() :
 
     # Get the stream of new submissions from the subreddit
     subreddit = reddit.subreddit(SUBREDDITNAME)
-    for submission in subreddit.stream.submissions():
-        submissiontitle = submission.title.encode('utf8')
-        
-        # If we haven't replied to this post before
-        if submission.id not in posts_replied_to:
-        
-            message = match(submissiontitle)
-            
-            if message != "No results found.":
-                submission.reply(message)
-                print "Submission to " + submission.title + ": " + message
-            else:
-                print "No results found. No submission made."
-            
-            # Store the current id into our list
-            posts_replied_to.append(submission.id)
 
-    # Write our updated list back to the file
-    with open("posts_replied_to.txt", "w") as f:
-        for post_id in posts_replied_to:
-            f.write(post_id + "\n")
+    while True:
+
+        for submission in subreddit.stream.submissions():
+            submissiontitle = submission.title.encode('utf8')
+        
+            # If we haven't replied to this post before
+            if submission.id not in posts_replied_to:
+        
+                message = match(submissiontitle)
+            
+                if message != "No results found.":
+                    submission.reply(message)
+                    print "Submission to " + submission.title + ": " + message
+                else:
+                    print "No results found. No submission made."
+            
+                # Store the current id into our list
+                posts_replied_to.append(submission.id)
+
+        # Write our updated list back to the file
+        with open("posts_replied_to.txt", "w") as f:
+            for post_id in posts_replied_to:
+                f.write(post_id + "\n")
 
 
 
