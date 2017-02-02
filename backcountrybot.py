@@ -9,7 +9,7 @@ from bs4    import BeautifulSoup
 
 
 SUBREDDITNAME = 'geartrade'
-botMessage = "\n\n" + "*****" + "\n\n" + "^I'm ^a ^bot, ^and ^I've ^done ^my ^best ^to ^find ^your ^item ^on ^backcountry.com ^and ^provide ^the ^lowest ^listed ^selling ^price ^your ^reference." + "\n\n" + "^It's ^possible ^that ^I ^may ^have ^chosen ^the ^wrong ^item. ^Feel ^free ^to ^send ^me ^a ^PM ^to ^report ^any ^sort ^of ^feedback." + "\n\n" + "^I ^was ^created ^by ^u/WarDEagle."
+botMessage = "\n\n" + "*****" + "\n\n" + "^I'm ^a ^bot, ^and ^I've ^done ^my ^best ^to ^find ^your ^item ^on ^backcountry.com ^and ^provide ^the ^lowest ^listed ^selling ^price ^your ^reference." + "\n\n" + "^It's ^possible ^that ^I ^may ^have ^chosen ^the ^wrong ^item ^(I'm ^still ^under ^development). ^Feel ^free ^to ^send ^me ^a ^PM ^to ^report ^any ^sort ^of ^feedback." + "\n\n" + "^I ^was ^created ^by ^u/WarDEagle."
 
 
 def between_i(string, start='', end=''):
@@ -73,7 +73,7 @@ def match(titleIn):
     print titleIn[5:]
     
     # check to make sure that we have a valid listing before going on
-    if not inValid(titleIn[:5]) or reiInTitle(titleIn):
+    if inValid(titleIn[:5]) or reiInTitle(titleIn):
         return "No results found."
     
     for url in urls:
