@@ -73,7 +73,7 @@ def match(titleIn):
     print titleIn[5:]
     
     # check to make sure that we have a valid listing before going on
-    if not inValid(titleIn[:5]) or reiInTitle(titleIn):
+    if inValid(titleIn[:5]) or reiInTitle(titleIn):
         return "No results found."
     
     for url in urls:
