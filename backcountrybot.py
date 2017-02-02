@@ -9,7 +9,7 @@ from bs4    import BeautifulSoup
 
 
 SUBREDDITNAME = 'geartrade'
-botMessage = "\n\n" + "*****" + "\n\n" + "^I'm ^a ^bot, ^and ^I've ^done ^my ^best ^to ^find ^your ^item ^on ^backcountry.com ^and ^provide ^the ^lowest ^listed ^selling ^price ^your ^reference." + "\n\n" + "^It's ^possible ^that ^I ^may ^have ^chosen ^the ^wrong ^item ^(I'm ^still ^under ^development). ^Feel ^free ^to ^send ^me ^a ^PM ^to ^report ^any ^sort ^of ^feedback." + "\n\n" + "^I ^was ^created ^by ^u/WarDEagle."
+botMessage = "\n\n" + "*****" + "\n\n" + "^I'm ^a ^bot, ^and ^I've ^done ^my ^best ^to ^find ^your ^item ^on ^backcountry.com ^and ^provide ^the ^lowest ^listed ^selling ^price ^for ^your ^reference." + "\n\n" + "^It's ^possible ^that ^I ^may ^have ^chosen ^the ^wrong ^item, ^as ^I'm ^still ^under ^development. ^Feel ^free ^to ^send ^me ^a ^PM ^or ^post ^in ^r/BackcountryBot ^to ^report ^any ^sort ^of ^feedback." + "\n\n" + "^I ^was ^created ^by ^u/WarDEagle."
 
 
 def between_i(string, start='', end=''):
