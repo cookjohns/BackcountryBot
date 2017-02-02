@@ -44,13 +44,33 @@ def between_i(string, start='', end=''):
 
 
 
+def hasValidTag(tag):
+    tagLower = tag.lower()
+    if "wtb" in tagLower:
+        return False
+    elif "[" not in tag or "]" not in tag:
+        return False
+    else:
+        return True
+
+
+
+def notRei(title):
+    titleLower = title.lower()
+    if "rei" in titleLower:
+        return False
+    else:
+        return True
+
+
+
 def match(titleIn):
     # get matching url from google
-    keywords = titleIn[6:].split(' ') # stores keywords from title
+    keywords = titleIn[5:].split(' ') # stores keywords from title
     results  = [] # stores urls with matching keywords
     searchTitle = "site:backcountry.com " + titleIn[5:] # chops off "[WTS] - " tag
     urls = search(searchTitle, stop=10) # stores google result urls
-    print titleIn[6:]
+    print titleIn[5:]
     
     for url in urls:
         urlStr = url.encode('utf8')
@@ -59,7 +79,7 @@ def match(titleIn):
         if mismatches < 5:
             results.append(url)
 
-    if len(results) > 0:
+    if len(results) > 0 and hasValidTag(titleIn[:5]) and notRei(titleIn):
         res = requests.get(results[0])
         html = res.content
         lowPrices  = between_i(html, "\"lowSalePrice\":\"", "\",")
